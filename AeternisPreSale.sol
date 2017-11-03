@@ -11,7 +11,8 @@ contract AeternisPreSale {
     
     uint public bonus;
     uint public price;    
-    uint public minSaleAmount;
+    
+    uint constant public minSaleAmount = 1000000000000000000;
 
     function AeternisPreSale(
         Aeternis _token,
@@ -23,7 +24,6 @@ contract AeternisPreSale {
         alfatokenteam = _alfatokenteam;
         bonus = 60;
         price = 300;
-        minSaleAmount = 1000000000000000000;
     }
 
     function () payable {
@@ -52,10 +52,5 @@ contract AeternisPreSale {
     function ChangePrice(uint _price) {
         require(msg.sender == beneficiary || msg.sender == alfatokenteam);
         price = _price;
-    }
-    
-    function ChangeMinSaleAmount(uint _minSaleAmount) {
-        require(msg.sender == beneficiary || msg.sender == alfatokenteam);
-        minSaleAmount = _minSaleAmount;
     }
 }
